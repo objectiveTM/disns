@@ -19,28 +19,34 @@
         <article>
 
             <?php
-                $payload = [
-                    "code" => $_GET["code"],
-                    "client_id" => "1017319444055339019",
-                    "client_secret"  => "z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh",
-                    "grant_type"  => "authorization_code",
-                    "redirect_uri"  => "http://localhost:8000",
-                    "scope"  => "scope=identify%20email%20dm_channels.read%20connections"
-                ];
+                // $data = [
+                //     "code" => $_GET["code"],
+                //     "client_id" => "1017319444055339019",
+                //     "client_secret"  => "z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh",
+                //     "grant_type"  => "authorization_code",
+                //     "redirect_uri"  => "http://localhost:8000",
+                //     "scope"  => "scope=identify%20email%20dm_channels.read%20connections"
+                // ];
 
-                $strPayload = http_build_query($payload);
-                $token = "https://discordapp.com/api/outhh2/z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh";
+                // echo http_build_query($data);
 
-                $ci = curl_init();
+                // $strData = http_build_query($payload);
+                // $token = "https://discordapp.com/api/outhh2/z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh";
 
-                curl_setopt($ci , CURLOPT_URL , $token);
-                curl_setopt($ci , CURLOPT_POST , true);
-                curl_setopt($ci , CURLOPT_POSTFIELDS , $strPayload);
-                curl_setopt($ci , CURLOPT_RETURNTRANSFER , true);
+                // $ci = curl_init();
 
-                $result = curl_exec($ci);
+                // curl_setopt($ci , CURLOPT_URL , $token);
+                // curl_setopt($ci , CURLOPT_POST , true);
+                // curl_setopt($ci , CURLOPT_POSTFIELDS , $strPayload);
+                // curl_setopt($ci , CURLOPT_RETURNTRANSFER , true);
 
-                echo $result;
+                // $result = curl_exec($ci);
+
+                // echo $result;
+
+
+                
+
 
 
 

@@ -4,11 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인패이지</title>
+    <title>정보</title>
     <link rel="stylesheet" href="style/index.css">
 
     <script type="text/javascript" src="plugins/vanilla-tilt.js"></script>
     <script src="script/index.js"></script>
+
+
+    <?= file_get_contents("layouts/meta.html") ?>
+    <meta property="og:site_name" content = "Infomation">
+    <meta property="og:description" content = "disns가 뭐를하는건지 알려줘요!">
 
 </head>
 <body>

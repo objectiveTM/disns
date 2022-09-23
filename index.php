@@ -17,48 +17,22 @@
 
 </head>
 <body>
+    <?php include "layouts/header.php"; ?>
+
+    <?php
     
-    <?= file_get_contents("layouts/header.html") ?>
+
+    // $conn = mysqli_connect("127.0.0.1" , "root" , "disns!password" , "");
+    ?>
 
     <main>
         <article>
 
             <?php
-                // $data = [
-                //     "code" => $_GET["code"],
-                //     "client_id" => "1017319444055339019",
-                //     "client_secret"  => "z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh",
-                //     "grant_type"  => "authorization_code",
-                //     "redirect_uri"  => "http://localhost:8000",
-                //     "scope"  => "scope=identify%20email%20dm_channels.read%20connections"
-                // ];
-
-                // echo http_build_query($data);
-
-                // $strData = http_build_query($payload);
-                // $token = "https://discordapp.com/api/outhh2/z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh";
-
-                // $ci = curl_init();
-
-                // curl_setopt($ci , CURLOPT_URL , $token);
-                // curl_setopt($ci , CURLOPT_POST , true);
-                // curl_setopt($ci , CURLOPT_POSTFIELDS , $strPayload);
-                // curl_setopt($ci , CURLOPT_RETURNTRANSFER , true);
-
-                // $result = curl_exec($ci);
-
-                // echo $result;
-
-
-                
-
-
-
-
                 session_start();
 
-                if (isset($_SESSION["name"])){
-                    echo '<div class="chat-left">'.$_SESSION["name"].'님 안녕하세요!</div>';
+                if (isset($_COOKIE["token"])){
+                    echo '<div class="chat-left">'.$discordInfo["username"].'님 안녕하세요!</div>';
                 }else{
                     echo '<div class="chat-left">안녕하세요!</div>';
                 }

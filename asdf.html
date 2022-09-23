@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>메인패이지</title>
+    <link rel="stylesheet" href="style/sns.css">
+
+    <script type="text/javascript" src="plugins/vanilla-tilt.js"></script>
+    <script src="script/index.js"></script>
+
+</head>
+<body>
+    <header>
+        <h1>DISNS</h1>
+        <nav>
+            <a href="userSet.php?action=login">login</a>
+            <a href="userSet.php?action=logout">logout</a>
+        </nav>
+    </header>
+    <div style="margin-bottom: 75px;"></div>
+    
+    <style>
+    
+        header{
+            position: fixed;
+            display: flex;
+            z-index: 999999;
+            
+            height: 75px;
+            width: 100%;
+            background-color: var(--perple);
+            align-items: center;
+        }
+    
+        header > h1{
+            color: white;
+            margin-left: 100px;
+            font-size: 40px;
+        }
+    
+        nav > a{
+            padding-left: 50px;
+            color: white;
+            text-decoration: none;
+        }
+    
+    </style>
+    
+    <main>
+        <nav id="follower">
+            <a href="user?id=1010">
+                <img src="https://images-ext-1.discordapp.net/external/aa_bfM2ExJjwecgrOThs_AzVRwOcOXqATqP1qCvrKGQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/577266050769485844/edb37a0f91e84d8204a1458bb97d3317.png">
+                <h1>5-23</h1>
+            </a>
+            <a href="user?id=1010">
+                <img src="https://images-ext-1.discordapp.net/external/aa_bfM2ExJjwecgrOThs_AzVRwOcOXqATqP1qCvrKGQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/577266050769485844/edb37a0f91e84d8204a1458bb97d3317.png">
+                <h1>5-24</h1>
+            </a>
+        </nav>
+        
+        <article>
+            <section>
+                <h1>Title</h1>
+                <h2>Description</h2>
+            </section>
+        </article>
+
+    </main>
+
+
+
+</body>
+</html>

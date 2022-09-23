@@ -5,7 +5,8 @@ ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
 define("OAUTH2_CLIENT_ID", "1017319444055339019");
-define("OAUTH2_CLIENT_SECRET", "z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh");
+define("OAUTH2_CLIENT_SECRET", "NyoacIeGgT9jCYXtBdm_1WjSqq5utOAg");
+$token = OAUTH2_CLIENT_SECRET;
 
 $space = "%20";
 $redirectURL = "http://localhost:8000/userSet.php";
@@ -29,29 +30,16 @@ if ($action == "login"){
     exit();
 }
 
-$redirectURL = "http://localhost:8000";
-
-if (!isset($_GET["code"])){
-    if (!isset($_COOKIE["code"])){
-        echo "code not found";
-        exit();
-    }
-}else{
-    if (!isset($_COOKIE["code"])){
-        // setcookie("code" , $_GET["code"] , time()+(60*60*24)*365 , "/");
-    }
-}
-
+$redirectURL = "http://localhost:8000/userSet.php";
 $data = [
     "code" => $_GET["code"],
-    "client_id" => "1017319444055339019",
-    "client_secret"=>"z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh",
+    "client_id" => OAUTH2_CLIENT_ID,
+    "client_secret"=>OAUTH2_CLIENT_SECRET,
     "redirect_uri"=>$redirectURL,
-    "grant_type"=> "authorization_code",
-    "scope"=> "identify"
+    "grant_type"=> "authorization_code"
 ];
 
-$url = "https://discordapp.com/api/oauth2/token";
+$url = "https://discord.com/api/v10/oauth2/token";
 $header = array("Content-Type: application/x-www-form-urlencoded");
 
 $cl = curl_init();
@@ -65,25 +53,7 @@ curl_setopt($cl , CURLOPT_SSL_VERIFYPEER , 0);
 curl_setopt($cl , CURLOPT_HTTPHEADER , $header);
 
 $result = curl_exec($cl);
-if (!$result){
-    echo curl_error($cl);
-}
-
-
 $result = json_decode($result , true);
-$token = "z1bEluvsK4-b5EfTYhZsOw3EAsF2IJnh";
-echo $token;
-$userUrl = "https://discordapp.com/api/users/@me";
-$header = array("Authorization: Bearer $token" , "Content-Type: application/x-www-form-urlencoded");
 
-$cl = curl_init();
-curl_setopt($cl , CURLOPT_HTTPHEADER , $header);
-curl_setopt($cl , CURLOPT_URL , $userUrl);
-curl_setopt($cl , CURLOPT_POST , false);
-curl_setopt($cl , CURLOPT_RETURNTRANSFER , true);
-curl_setopt($cl , CURLOPT_SSL_VERIFYHOST , 0);
-curl_setopt($cl , CURLOPT_SSL_VERIFYPEER , 0);
-
-$result = curl_exec($cl);
-
-echo $result;
+setcookie("token" , $result["access_token"] , time()+(60*60*24)*365 , "/");
+header("Location: /");

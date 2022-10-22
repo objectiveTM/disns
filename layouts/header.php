@@ -52,6 +52,7 @@ $discordInfo = json_decode($result , true);
         width: 100%;
         background-color: var(--perple);
         align-items: center;
+        box-shadow: 0px -3px 10px 0px black;
     }
 
     header > h1{

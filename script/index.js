@@ -22,3 +22,15 @@
 // }
 
 // animation()
+/**
+ * @param {string}id 유저ID쓰세요
+ */
+userPage = (id) => {
+    let url = new URL(location.href);
+    console.log(url.searchParams.get("id"))
+    console.log(url.searchParams.get("id") == id)
+    if (url.searchParams.get("id") != id){
+        location.href = `?id=${id}`;
+    }
+
+}

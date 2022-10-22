@@ -6,10 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>메인패이지</title>
     <link rel="stylesheet" href="style/sns.css">
-
-    <script type="text/javascript" src="plugins/vanilla-tilt.js"></script>
-    <script src="script/index.js"></script>
-
 </head>
 <body>
     <header>
@@ -32,6 +28,8 @@
             width: 100%;
             background-color: var(--perple);
             align-items: center;
+
+            box-shadow: 0px -3px 10px 0px black;
         }
     
         header > h1{
@@ -50,20 +48,30 @@
     
     <main>
         <nav id="follower">
-            <a href="user?id=1010">
+            <div onclick="userPage(1)">
                 <img src="https://images-ext-1.discordapp.net/external/aa_bfM2ExJjwecgrOThs_AzVRwOcOXqATqP1qCvrKGQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/577266050769485844/edb37a0f91e84d8204a1458bb97d3317.png">
                 <h1>5-23</h1>
-            </a>
-            <a href="user?id=1010">
+            </div>
+            <div onclick="userPage(2)">
                 <img src="https://images-ext-1.discordapp.net/external/aa_bfM2ExJjwecgrOThs_AzVRwOcOXqATqP1qCvrKGQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/577266050769485844/edb37a0f91e84d8204a1458bb97d3317.png">
                 <h1>5-24</h1>
-            </a>
+            </div>
+            <div onclick="userPage(3)">
+                <img src="https://images-ext-1.discordapp.net/external/aa_bfM2ExJjwecgrOThs_AzVRwOcOXqATqP1qCvrKGQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/577266050769485844/edb37a0f91e84d8204a1458bb97d3317.png">
+                <h1>5-25</h1>
+            </div>
+            <div onclick="userPage(4)">
+                <img src="https://images-ext-1.discordapp.net/external/aa_bfM2ExJjwecgrOThs_AzVRwOcOXqATqP1qCvrKGQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/577266050769485844/edb37a0f91e84d8204a1458bb97d3317.png">
+                <h1>5-26</h1>
+            </div>
         </nav>
+        
         
         <article>
             <section>
                 <h1>Title</h1>
                 <h2>Description</h2>
+                <b class = "reaction">👍 1972</b>
             </section>
         </article>
 
@@ -73,3 +81,45 @@
 
 </body>
 </html>
+
+
+<script
+src="https://code.jquery.com/jquery-3.6.1.min.js"
+integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+crossorigin="anonymous"></script>
+
+<script src="script/index.js"></script>
+<script src="https://twemoji.maxcdn.com/v/14.0.2/twemoji.min.js" integrity="sha384-32KMvAMS4DUBcQtHG6fzADguo/tpN1Nh6BAJa2QqZc6/i0K+YPQE+bWiqBRAWuFs" crossorigin="anonymous"></script>
+<script>twemoji.parse(document.body)</script>
+
+<script>
+    sleep = (sec) => {
+        return new Promise(res => setTimeout(res, sec));
+    }
+    let url = new URL(location.href);
+
+    window.onload= async()=>{
+        if (url.searchParams.get("id") == undefined){
+            // let element = document.querySelector('#follower');
+            // let element = $("#follower::before");
+            // let styles = window.getComputedStyle(element,':before')
+            // styles.animationName = "follower-anime"
+            // element.css("animation-name" , "follower-anime")
+            // console.log(element.css)
+        }
+        let followers = document.getElementById("follower");
+        for (i = 0;i<followers.childElementCount;i++){
+            followers.children[i].style.animationName = "leftToRight";
+            followers.children[i].style.opacity = "1";
+
+            if (url.searchParams.get("id") == i+1){
+                followers.children[i].style.opacity = "0.5";
+                followers.children[i].id= "clickIt";
+            }
+
+            await sleep(100);
+        // document.getElementById("clickIt").style.animationName = "leftToRight"
+        // console.log()
+        }
+    }
+</script>

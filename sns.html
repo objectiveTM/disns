@@ -16,14 +16,14 @@
         </nav>
     </header>
     <div style="margin-bottom: 75px;"></div>
-    
+
     <style>
-    
+
         header{
             position: fixed;
             display: flex;
             z-index: 999999;
-            
+
             height: 75px;
             width: 100%;
             background-color: var(--perple);
@@ -31,23 +31,28 @@
 
             box-shadow: 0px -3px 10px 0px black;
         }
-    
+
         header > h1{
             color: white;
             margin-left: 100px;
             font-size: 40px;
         }
-    
+
         nav > a{
-            padding-left: 50px;
+            padding-left: 50;
             color: white;
             text-decoration: none;
         }
-    
+
     </style>
-    
+
     <main>
         <nav id="follower">
+            <div onclick="userPage(0)">
+                <img src="svgs/compass.svg">
+                <h1>추천</h1>
+            </div>
+
             <div onclick="userPage(1)">
                 <img src="https://images-ext-1.discordapp.net/external/aa_bfM2ExJjwecgrOThs_AzVRwOcOXqATqP1qCvrKGQ/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/577266050769485844/edb37a0f91e84d8204a1458bb97d3317.png">
                 <h1>5-23</h1>
@@ -65,13 +70,40 @@
                 <h1>5-26</h1>
             </div>
         </nav>
-        
-        
+
+
         <article>
             <section>
                 <h1>Title</h1>
-                <h2>Description</h2>
-                <b class = "reaction">👍 1972</b>
+                <h2>Description 🎃 🎃</h2>
+
+                <div class = "imgs">
+                    <img src = "https://koreanbots.dev/api/image/discord/avatars/577266050769485844.webp?size=512"/>
+                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpaO-5u37MVNiwMzFBnEgyfnBFdd8ajJVJLd0LfWQ6nVbsv39MGj8zFDxxW-cuwx9x6sA&usqp=CAU"/>
+                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcorL6Bi7SsSwMEGmoS6oeYntvcKFWC1Ojaaui6Nkw7NaQ_XhNJjjCw6x9bV3_ov-4PNQ&usqp=CAU"/>
+                    <img src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSJJnjpUEFPr2vXJuJzj2uhT90NVfgXNIe084b7Mv9atB_PIxB1YkfVtlySoH8OPFyiyg8&usqp=CAU"/>
+                    <img src = ""/>
+                </div>
+
+                <div class = "user">
+                    <img src = "https://koreanbots.dev/api/image/discord/avatars/577266050769485844.webp?size=512" alt="5-23 dev#9999 | "/>
+                    5-23dev #9999
+                </div>
+
+                <b class = "reaction" count = "1000">⭐</b>
+            </section>
+
+            <section>
+                <h1>a🎃 🎃</h1>
+                <h2>Hello, World!</h2>
+
+
+                <div class = "user">
+                    <img src = "https://koreanbots.dev/api/image/discord/avatars/577266050769485844.webp?size=512" alt="5-23 dev#9999 | "/>
+                    5-23dev #9999
+                </div>
+
+                <b class = "" count = "1000">⭐</b>
             </section>
         </article>
 
@@ -97,29 +129,21 @@ crossorigin="anonymous"></script>
         return new Promise(res => setTimeout(res, sec));
     }
     let url = new URL(location.href);
-
     window.onload= async()=>{
-        if (url.searchParams.get("id") == undefined){
-            // let element = document.querySelector('#follower');
-            // let element = $("#follower::before");
-            // let styles = window.getComputedStyle(element,':before')
-            // styles.animationName = "follower-anime"
-            // element.css("animation-name" , "follower-anime")
-            // console.log(element.css)
-        }
         let followers = document.getElementById("follower");
         for (i = 0;i<followers.childElementCount;i++){
             followers.children[i].style.animationName = "leftToRight";
             followers.children[i].style.opacity = "1";
-
-            if (url.searchParams.get("id") == i+1){
+            if (url.searchParams.get("id") == null){
+                followers.children[0].style.opacity = "0.5";
+                followers.children[0].id = "clickIt";
+            }
+            if (url.searchParams.get("id") == i){
                 followers.children[i].style.opacity = "0.5";
                 followers.children[i].id= "clickIt";
             }
 
             await sleep(100);
-        // document.getElementById("clickIt").style.animationName = "leftToRight"
-        // console.log()
         }
     }
 </script>

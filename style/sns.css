@@ -1,11 +1,14 @@
 *{
     margin: 0;
+    overflow-x: hidden;
 }
 :root{
     --backgroundColor:rgb(231, 231, 231);
     --perple: rgb(132, 0, 255);
     --blue: rgb(0, 140, 255);
     --blueAlpha: rgba(0, 140, 255, 0.473);
+    --nav: 300px;
+    --navmg: 350px;
 }
 
 body{
@@ -13,19 +16,19 @@ body{
 }
 
 
-img[alt="👍"]{
+img[alt="⭐"]{
     width: 15px;
-}
-*{
-    overflow-x: hidden;
 }
 
 main{
     display: flex;
 }
 
+
+
 nav[id="follower"]{
-    width: 300px;
+    position: fixed;
+    width: var(--nav);
     height: 1000px;
     padding-left: 20px;
     padding-right: 20px;
@@ -53,10 +56,10 @@ nav[id="follower"]::before{
     z-index: -1000;
     filter: blur(10px);
     transform: translateX(-300px) translateY(-100px);
-
+    
     border-radius: 50px;
     transform: rotateZ(405deg);
-
+    
     animation-name: follower-anime;
     animation-duration: 3s;
     /* animation-iteration-count: infinite; */
@@ -72,7 +75,7 @@ nav[id="follower"] > div{
     width: 90%;
     background-color: white;
     transition: all .3s;
-
+    
     /* transform: translateX(-550px); */
     cursor: pointer;
     opacity: 0;
@@ -125,11 +128,8 @@ nav[id="follower"] > div > img{
 }
 
 article{
-    margin-top: 30px;
-    margin-left: 50px;
+    margin-top: 10px;
     padding-right: 45px;
-    background-repeat: no-repeat;
-    width: 60%;
 }
 
 section{
@@ -142,7 +142,7 @@ section{
     border: solid 1px rgb(151, 151, 151);
     margin: 10px;
     padding-right: 0px;
-
+    
     backdrop-filter: blur(10px);
     z-index: 2000;
 }
@@ -150,29 +150,77 @@ section{
 section:hover{
     transform: translateY(-2px);
 }
+
 section > h1{
+    display: flex;
     font-size: 30px;
     margin-bottom: 5px;
+    align-items: center;
+    gap: 10px;
 }
+
+.user > img{
+    border-radius: 100%;
+    width: 40px;
+    cursor: pointer;
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
 
 section > h2{
     margin-bottom: 15px;
 }
 
+h1 > img{
+    width: 35px;
+}
+
+h2 > img{
+    width: 20px;
+}
+
+section > .imgs{
+    margin-bottom: 15px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    transition: all .5s;
+    margin-right: 20px;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+
+
+section > .imgs > img{
+    width: 300px;
+    border-radius: 30px;
+}
+
 section > b{
     border-radius: 7px;
     margin-top: 100px;
-    /* font-size: 17px; */
-    /* width: 40px; */
     padding-left: 4px;
     padding-right: 4px;
     overflow-x: hidden;
-    color: white;
-
+    color: black;
+    
     cursor: pointer;
+    border: solid 1px black;
+    transition: all .5s;
 }
+
 section > b:hover{
-    border: solid 1px var(--blueAlpha);
+    border: solid 1px var(--blue);
+    color: var(--blueAlpha);
+}
+
+section > b::after{
+    content: attr(count)
 }
 
 section > b.reaction:hover{
@@ -182,8 +230,39 @@ section > b.reaction:hover{
 section > b.reaction{
     border: solid 1px var(--blue);
     background-color: var(--blueAlpha);
+    color: white;
 }
+
+.imgs::-webkit-scrollbar-thumb{
+    background-color: rgba(0, 0, 0, 0.137);
+    border-radius: 50px;
+}
+
+.imgs::-webkit-scrollbar{
+    display: block;
+    background-color: rgba(255, 255, 255, 0);
+    height: 5px;
+}
+
 
 ::-webkit-scrollbar{
     display: none;
+}
+
+@media (max-width: 1000px) {
+    nav[id="follower"]{
+        display: none;
+    }
+    article{
+    }
+}
+
+@media (min-width: 1000px) {
+    article{
+        width: 60%;
+        margin-right: 30px;
+        margin-left: 10px;
+        margin-left: var(--navmg);
+    
+    }
 }

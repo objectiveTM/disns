@@ -25,12 +25,14 @@
 /**
  * @param {string}id 유저ID쓰세요
  */
-userPage = (id) => {
+userPage = (_id) => {
     let url = new URL(location.href);
-    console.log(url.searchParams.get("id"))
-    console.log(url.searchParams.get("id") == id)
-    if (url.searchParams.get("id") != id){
-        location.href = `?id=${id}`;
+    id = url.searchParams.get("id");
+    if (id == null){
+        id = 0;
     }
 
+    if (id != _id){
+        location.href = `?id=${_id}`;
+    }
 }

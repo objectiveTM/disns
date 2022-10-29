@@ -15,41 +15,59 @@ body{
     background-color: var(--backgroundColor);
 }
 
-section{
+section#info-1{
     display: flex;
     align-items: center;
 }
 
-section > article > h1{
+section#info-1 > article > h1{
     font-size: 50px;
 }
 
-section >  img{
+section#info-1 >  img{
     margin: 50px;
     border-radius: 100%;
     /* border: solid 10px var(--perple); */
     box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.253);
 }
 
-article > b{
-    --mg: 30px;
-    /* padding-left: var(--mg); */
+div#status{
+    display: flex;
+    align-items: center;
 }
 
-article > b::before{
-    content: '';
-    position: relative;
-    display: block;
-
-    width: var(--mg);
-    height: var(--mg);
-    
-    border-radius: 100%;
-    background-color: var(--color);
+section#info-2{
+    margin-left: 100px;
+    margin-right: 100px;
 }
 
-article > b::after{
-    content: 'aaa';
+section#info-2 > article{
+    display: flex;
+    align-items: center;
+
+    background-color: white;
+    width: 100%;
+    height: 70px;
+    border-radius: 20px;
+    /* font-size: 100px; */
+}
+
+section#info-2 > article > img{
+    width: 50px;
+    margin-left: 20px;
+}
+
+
+div > img{
+    width: 21px;
+}
+
+h1 > img{
+    width: 40px;
+}
+
+h2 > img{
+    width: 25px;
 }
 
 
